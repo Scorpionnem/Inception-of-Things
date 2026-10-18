@@ -1,3 +1,4 @@
 #!/bin/bash
-curl -sfL https://get.k3s.io | sh -
-k3s agent --server "192.168.56.110"
+TOKEN=$(cat /vagrant/token)
+
+curl -sfL https://get.k3s.io | K3S_URL=https://192.168.56.110:6443 K3S_TOKEN=$TOKEN sh -
